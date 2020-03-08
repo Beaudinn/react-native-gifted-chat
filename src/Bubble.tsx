@@ -148,6 +148,7 @@ export interface BubbleProps<TMessage extends IMessage> {
   renderMessageVideo?(props: RenderMessageVideoProps<TMessage>): React.ReactNode
   renderMessageText?(props: RenderMessageTextProps<TMessage>): React.ReactNode
   renderCustomView?(bubbleProps: BubbleProps<TMessage>): React.ReactNode
+  renderAdaptiveView?(quickReplies: QuickReplies['props']): React.ReactNode
   renderTime?(timeProps: Time['props']): React.ReactNode
   renderTicks?(currentMessage: TMessage): React.ReactNode
   renderUsername?(): React.ReactNode
@@ -169,6 +170,7 @@ export default class Bubble<
     renderMessageVideo: null,
     renderMessageText: null,
     renderCustomView: null,
+    renderAdaptiveView: null,
     renderUsername: null,
     renderTicks: null,
     renderTime: null,
@@ -200,6 +202,7 @@ export default class Bubble<
     renderMessageVideo: PropTypes.func,
     renderMessageText: PropTypes.func,
     renderCustomView: PropTypes.func,
+    renderAdaptiveView: PropTypes.func,
     isCustomViewBottom: PropTypes.bool,
     renderUsernameOnMessage: PropTypes.bool,
     renderUsername: PropTypes.func,
@@ -336,6 +339,21 @@ export default class Bubble<
     }
     return null
   }
+
+  renderAdaptiveView() {
+    const {
+      currentMessage,
+    } = this.props
+    if (currentMessage) { // && currentMessage.quickReplies
+      //const { containerStyle, wrapperStyle } = this.props
+      if (this.props.renderAdaptiveView) {
+        return this.props.renderAdaptiveView(currentMessage)
+      }
+    }
+    return null
+  }
+
+
 
   renderMessageText() {
     if (this.props.currentMessage && this.props.currentMessage.text) {
@@ -513,6 +531,7 @@ export default class Bubble<
             </View>
           </TouchableWithoutFeedback>
         </View>
+        {this.renderAdaptiveView()}
         {this.renderQuickReplies()}
       </View>
     )

@@ -165,6 +165,8 @@ export interface GiftedChatProps<TMessage extends IMessage = IMessage> {
   renderMessageImage?(props: MessageImage<TMessage>['props']): React.ReactNode
   /* Custom view inside the bubble */
   renderCustomView?(props: Bubble<TMessage>['props']): React.ReactNode
+  /* Custom view inside the bubble */
+  renderAdaptiveView?(props: Bubble<TMessage>['props']): React.ReactNode
   /*Custom day above a message*/
   renderDay?(props: Day<TMessage>['props']): React.ReactNode
   /* Custom time inside a message */
@@ -256,6 +258,7 @@ class GiftedChat<TMessage extends IMessage = IMessage> extends React.Component<
     textInputProps: {},
     listViewProps: {},
     renderCustomView: null,
+    renderAdaptiveView: null,
     isCustomViewBottom: false,
     renderDay: null,
     renderTime: null,
@@ -326,6 +329,7 @@ class GiftedChat<TMessage extends IMessage = IMessage> extends React.Component<
     videoProps: PropTypes.object,
     lightboxProps: PropTypes.object,
     renderCustomView: PropTypes.func,
+    renderAdaptiveView: PropTypes.func,
     renderDay: PropTypes.func,
     renderTime: PropTypes.func,
     renderFooter: PropTypes.func,

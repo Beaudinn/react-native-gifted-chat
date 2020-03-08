@@ -1775,6 +1775,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-typing-animation@^1.6.2":
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/@types/react-typing-animation/-/react-typing-animation-1.6.2.tgz#192e4820e57858110875f429dce5a9eda17679a6"
+  integrity sha512-TrKe6uoSKJHQn+HFcfJVy0Z4DHLXrMMWuA2IfqQUq0YS+urAfoKUpHnMF8zSmPSdwWUJj8IWJorRsk6Kcn4C1g==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react@*", "@types/react@16.9.17":
   version "16.9.17"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.17.tgz#58f0cc0e9ec2425d1441dd7b623421a867aa253e"

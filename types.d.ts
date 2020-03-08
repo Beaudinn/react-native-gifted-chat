@@ -1,3 +1,4 @@
+declare module 'react-native-typing-animation';
 declare module '@expo/react-native-action-sheet' {
   export {
     connectActionSheet,
